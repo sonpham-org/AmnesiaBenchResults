@@ -14,6 +14,8 @@ from pathlib import Path
 
 import matplotlib.dates as mdates
 import matplotlib.pyplot as plt
+from matplotlib.lines import Line2D
+from matplotlib.ticker import FuncFormatter
 
 ROOT = Path("/tmp/scott25")
 
@@ -69,50 +71,59 @@ def main():
 
     # Non-cohort: small filled dots, light labels above.
     # Cohort: big ring + thicker outline + bold label below.
-    drawn_legend_families = set()
     for label, d, ctx, fam, is_cohort, offset in MODELS:
         color = FAMILY[fam]
-        legend_label = fam if fam not in drawn_legend_families else None
-        drawn_legend_families.add(fam)
         off = offset if offset is not None else (5, 8)
 
         if is_cohort:
             ax.scatter([d], [ctx], s=260, color=color, alpha=0.9,
-                       edgecolors="black", linewidths=1.8, zorder=6,
-                       label=legend_label)
+                       edgecolors="black", linewidths=1.8, zorder=6)
             ax.annotate(label, (d, ctx),
                         xytext=off, textcoords="offset points",
                         fontsize=9.5, fontweight="bold", color="black", zorder=8)
         else:
             ax.scatter([d], [ctx], s=70, color=color, alpha=0.55,
-                       edgecolors="white", linewidths=0.4, zorder=4,
-                       label=legend_label)
+                       edgecolors="white", linewidths=0.4, zorder=4)
             ax.annotate(label, (d, ctx),
                         xytext=off, textcoords="offset points",
                         fontsize=8, color="#333", zorder=7)
 
-    # Horizontal reference at 131k — the context the AmnesiaBench harness
-    # exercised, regardless of each model's maximum capability.
-    ax.axhline(131_072, color="gray", linestyle="--", linewidth=1.2, alpha=0.6)
-    ax.text(date(2022, 12, 1), 131_072 * 1.1,
-            "AmnesiaBench test context = 131,072 tokens",
-            fontsize=9, color="gray")
-
     ax.set_yscale("log")
     ax.set_ylim(2_000, 20_000_000)
     ax.set_xlim(date(2022, 10, 1), date(2026, 5, 1))
+
+    # Y-axis: only clean base-10 ticks — 1k, 10k, 100k, 1M, 10M.
+    y_ticks = [1_000, 10_000, 100_000, 1_000_000, 10_000_000]
+    def _fmt(v, _pos):
+        if v >= 1_000_000:
+            return f"{v/1_000_000:g}M"
+        if v >= 1_000:
+            return f"{v/1_000:g}k"
+        return str(int(v))
+    ax.set_yticks(y_ticks)
+    ax.yaxis.set_major_formatter(FuncFormatter(_fmt))
+    ax.yaxis.set_minor_locator(plt.NullLocator())  # no minor ticks
 
     ax.xaxis.set_major_locator(mdates.MonthLocator(bymonth=[1, 7]))
     ax.xaxis.set_major_formatter(mdates.DateFormatter("%b %Y"))
     plt.setp(ax.get_xticklabels(), rotation=35, ha="right")
 
     ax.set_xlabel("release date")
-    ax.set_ylabel("max context window  (tokens, log scale)")
+    ax.set_ylabel("max context window  (tokens)")
     ax.set_title("Frontier LLM context windows over time  "
                  "(filled rings with black border = AmnesiaBench Scott-25 cohort)")
-    ax.grid(True, which="both", alpha=0.25)
-    ax.legend(loc="upper left", fontsize=9, framealpha=0.92,
-              title="vendor", title_fontsize=10)
+    ax.grid(True, which="major", alpha=0.3)
+    ax.grid(False, which="minor")
+
+    # Custom legend with uniform marker size so every vendor gets the same
+    # swatch — otherwise the first-appearing dot determines the size, which
+    # made Zhipu look "bigger" just because GLM-5 is a cohort model.
+    handles = [Line2D([0], [0], marker="o", linestyle="",
+                      markersize=8, markerfacecolor=FAMILY[f],
+                      markeredgecolor="white", markeredgewidth=0.5,
+                      label=f) for f in FAMILY]
+    ax.legend(handles=handles, loc="upper left", fontsize=9,
+              framealpha=0.92, title="vendor", title_fontsize=10)
 
     out = ROOT / "context_window_timeline.png"
     fig.tight_layout()
