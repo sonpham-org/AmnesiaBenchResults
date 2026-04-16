@@ -69,24 +69,11 @@ MODELS: list[tuple[str, date, int, str, bool, tuple[int, int] | None]] = [
 def main():
     fig, ax = plt.subplots(figsize=(15, 8.5))
 
-    # Non-cohort: small filled dots, light labels above.
-    # Cohort: big ring + thicker outline + bold label below.
+    # Uniform dots — no per-model labels, no cohort highlighting.
     for label, d, ctx, fam, is_cohort, offset in MODELS:
         color = FAMILY[fam]
-        off = offset if offset is not None else (5, 8)
-
-        if is_cohort:
-            ax.scatter([d], [ctx], s=260, color=color, alpha=0.9,
-                       edgecolors="black", linewidths=1.8, zorder=6)
-            ax.annotate(label, (d, ctx),
-                        xytext=off, textcoords="offset points",
-                        fontsize=9.5, fontweight="bold", color="black", zorder=8)
-        else:
-            ax.scatter([d], [ctx], s=70, color=color, alpha=0.55,
-                       edgecolors="white", linewidths=0.4, zorder=4)
-            ax.annotate(label, (d, ctx),
-                        xytext=off, textcoords="offset points",
-                        fontsize=8, color="#333", zorder=7)
+        ax.scatter([d], [ctx], s=70, color=color, alpha=0.7,
+                   edgecolors="white", linewidths=0.4, zorder=4)
 
     ax.set_yscale("log")
     ax.set_ylim(2_000, 20_000_000)
@@ -110,8 +97,7 @@ def main():
 
     ax.set_xlabel("release date")
     ax.set_ylabel("max context window  (tokens)")
-    ax.set_title("Frontier LLM context windows over time  "
-                 "(filled rings with black border = AmnesiaBench Scott-25 cohort)")
+    ax.set_title("Frontier LLM context windows over time")
     ax.grid(True, which="major", alpha=0.3)
     ax.grid(False, which="minor")
 
