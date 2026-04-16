@@ -40,6 +40,26 @@ problem's window-prediction score, rather than penalized.
 
 ---
 
+## 0. Context-window growth over time  (where the cohort sits)
+
+![Context window timeline](context_window_timeline.png)
+
+The seven models in this cohort all ship with max context windows
+between **128k and 1M tokens**, released between July 2025 and March
+2026. The AmnesiaBench harness tested at **131,072 tokens** (the
+dashed horizontal line) — a size that was the 2024 frontier but is
+now middle-of-the-pack. Against that backdrop, compaction quality
+matters more than raw max: the question isn't whether a model *can*
+reach 1M tokens, it's whether it can solve in **far less** than
+its advertised capacity.
+
+Dates and max context windows sourced from Anthropic / OpenAI /
+Google / DeepSeek / Alibaba / Zhipu launch announcements and
+third-party trackers (verified April 2026). Filled rings with a
+black border are the seven Scott-25 cohort models.
+
+---
+
 ## 1. Cost vs compaction_ratio
 
 ![Cost vs compaction_ratio](cost_vs_compaction_ratio.png)
