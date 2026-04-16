@@ -141,23 +141,78 @@ def draw_panel(ax, pts_by_model, title):
     return summary
 
 
+def load_cost_per_token():
+    """Per-model cost_per_token matching amnesia_kaggle/scoring.py:
+       sum(cost_nanodollars) / sum(input+output tokens) across all 25."""
+    cpt = {}
+    for m in MODELS:
+        res = json.loads((ROOT / m / "results_scott25.json").read_text())
+        tc = tt = 0
+        for r in res:
+            tc += int(r.get("cost_nanodollars", 0) or 0)
+            tt += int(r.get("input_tokens", 0) or 0) + int(r.get("output_tokens", 0) or 0)
+        cpt[m] = (tc / tt) if tt > 0 else 0.0
+    return cpt
+
+
+def draw_cpt_panel(ax, pts_by_model, cpt, title):
+    """Same Y as draw_panel but X is the per-model cost_per_token scalar."""
+    rng = np.random.default_rng(1)
+    summary = []
+    for m in MODELS:
+        pts = pts_by_model[m]
+        if not pts:
+            continue
+        c = MODEL_COLORS[m]
+        ys = np.array([p[1] for p in pts], dtype=float)
+        x0 = cpt[m]
+        log_x = np.log10(np.clip(np.full(len(ys), x0, dtype=float), 1e-9, None)) \
+                + rng.uniform(-0.04, 0.04, size=len(ys))
+        ax.scatter(10 ** log_x, ys, color=c, alpha=0.55, s=40,
+                   edgecolors="white", linewidths=0.4, zorder=3,
+                   label=f"{m} (cpt={x0:,.0f}, n={len(pts)})")
+        my = float(np.mean(ys))
+        ax.scatter([x0], [my], s=180, color=c,
+                   edgecolors="black", linewidths=1.5, zorder=6)
+        summary.append((m, len(pts), x0, my))
+    ax.set_xscale("log")
+    ax.set_xlabel("average cost per token  (nanodollars/token, log scale)")
+    ax.set_ylabel("context_efficiency per problem")
+    ax.set_title(title)
+    ax.set_ylim(-0.05, 1.1)
+    ax.axhline(1.0, color="gray", linestyle=":", linewidth=1, alpha=0.5)
+    ax.grid(True, which="both", alpha=0.25)
+    ax.legend(loc="best", fontsize=8, framealpha=0.9)
+    return summary
+
+
 def main():
     by_model, baseline, pids = load_all()
-
-    fig, ax = plt.subplots(figsize=(13, 8))
+    cpt = load_cost_per_token()
     pts_all = build_points(by_model, baseline, pids, include_unsolved=True)
-    sB = draw_panel(ax, pts_all,
-                    "AmnesiaBench Scott-25 — cost vs context_efficiency  "
-                    "(including unsolved: score=0, cost=cost_unbounded)")
+
+    fig, (ax_a, ax_b) = plt.subplots(2, 1, figsize=(13, 14))
+    sA = draw_panel(ax_a, pts_all,
+                    "A. cost of the n_reliable run  (unsolved: cost_unbounded)")
+    sB = draw_cpt_panel(ax_b, pts_all, cpt,
+                        "B. cost per token  (per-model rate)")
+    fig.suptitle("AmnesiaBench Scott-25 — context_efficiency vs cost  "
+                 "(including unsolved: score=0)")
     fig.tight_layout()
     out = ROOT / "cost_vs_ctxeff.png"
     fig.savefig(out, dpi=140)
     print(f"Saved: {out}")
 
-    print(f"\n  {'model':<18} {'n':>3} {'mean_cost':>14} {'sd_cost':>14} "
-          f"{'mean_ctx_eff':>13} {'sd':>7}")
-    for m, n, mx, sx, my, sy in sB:
-        print(f"  {m:<18} {n:>3} {mx:>14,.0f} {sx:>14,.0f} {my:>13.4f} {sy:>7.4f}")
+    def _pr(title, rows, col_label):
+        print(f"\n{title}")
+        print(f"  {'model':<18} {'n':>3} {col_label:>14} {'mean_ctx_eff':>13}")
+        for m, n, mx, my in sorted(rows, key=lambda r: -r[3]):
+            print(f"  {m:<18} {n:>3} {mx:>14,.1f} {my:>13.4f}")
+
+    # draw_panel returns 6-tuples; draw_cpt_panel returns 4-tuples. Normalize.
+    sA_short = [(m, n, mx, my) for (m, n, mx, _sx, my, _sy) in sA]
+    _pr("A. cost of n_reliable run (nd)", sA_short, "mean_cost")
+    _pr("B. cost per token (nd/token)", sB, "cost/tok")
 
 
 if __name__ == "__main__":

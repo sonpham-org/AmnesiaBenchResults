@@ -63,21 +63,32 @@ problem's window-prediction score, rather than penalized.
 
 ![Cost vs context_efficiency](cost_vs_ctxeff.png)
 
-Y-axis = `baseline_n_reliable / n_reliable` (unsolved → 0). Every
-model has all 25 points: small dots = individual problems, big dot =
-per-model mean.
+Two panels share the same Y-axis (`baseline_n_reliable / n_reliable`,
+unsolved → 0). Every model has all 25 points: small dots =
+individual problems, big dot = per-model mean.
+
+- **Panel A: X = cost of the n_reliable run** (nanodollars of the
+  single trial set that defined `n_reliable`; for unsolved problems,
+  `cost_unbounded`). This is the "what did it cost to land at your
+  score" view.
+- **Panel B: X = cost per token** (the model's average price
+  `sum(cost_nd) / sum(tokens)` across all 25 problems). This is the
+  "how expensive is this model per unit of compute" view; each model's
+  dots share an x-coordinate.
+
+Findings:
 
 - **claude-opus leads at 0.47.** It's the only model whose mean lifts
   above 0.2 once you include the problems it failed.
 - **Everyone else bunches between 0.06 and 0.25.** 50× cost differences
   in that cluster don't predict meaningful score differences.
-- **Solved-only vs. including-unsolved flips the ranking.** gpt-5.4
-  hits 1.00 solved-only because on its 2 problems it *was* the
-  baseline-setter. The honest view drops it to 0.08. Any model that
-  aggressively abstains looks perfect on strict means and terrible on
-  inclusive means.
-- **Pareto frontier:** gpt-5.4 → qwen-480b → claude-haiku →
+- **Pareto frontier (Panel A):** gpt-5.4 → qwen-480b → claude-haiku →
   claude-opus. Sonnet, glm-5, deepseek are all dominated.
+- **Pareto frontier (Panel B):** deepseek-3.2 → qwen-480b → claude-haiku
+  → claude-opus. deepseek and qwen are nearly tied on price per token
+  (~850 nd/token), but qwen's score is 2.4× higher.
+- **Opus is ~14× more expensive per token than qwen-480b but only ~3×
+  better on ctx_eff.** Sublinear scaling.
 
 ---
 
