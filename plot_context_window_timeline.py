@@ -69,11 +69,17 @@ MODELS: list[tuple[str, date, int, str, bool, tuple[int, int] | None]] = [
 def main():
     fig, ax = plt.subplots(figsize=(15, 8.5))
 
-    # Uniform dots — no per-model labels, no cohort highlighting.
+    # Uniform dots; only GPT-3.5 and GPT-5.4 get a label (the endpoints).
+    LABELED = {"GPT-3.5", "GPT-5.4"}
     for label, d, ctx, fam, is_cohort, offset in MODELS:
         color = FAMILY[fam]
         ax.scatter([d], [ctx], s=70, color=color, alpha=0.7,
                    edgecolors="white", linewidths=0.4, zorder=4)
+        if label in LABELED:
+            off = offset if offset is not None else (5, 8)
+            ax.annotate(label, (d, ctx),
+                        xytext=off, textcoords="offset points",
+                        fontsize=9.5, fontweight="bold", color="black", zorder=8)
 
     ax.set_yscale("log")
     ax.set_ylim(2_000, 20_000_000)
