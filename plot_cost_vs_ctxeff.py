@@ -182,7 +182,7 @@ def draw_cpt_panel(ax, pts_by_model, cpt, title):
     ax.set_ylim(-0.05, 1.1)
     ax.axhline(1.0, color="gray", linestyle=":", linewidth=1, alpha=0.5)
     ax.grid(True, which="both", alpha=0.25)
-    ax.legend(loc="upper right", bbox_to_anchor=(1.0, 0.92),
+    ax.legend(loc="upper right", bbox_to_anchor=(1.0, 0.85),
               fontsize=8, framealpha=0.9)
     return summary
 
