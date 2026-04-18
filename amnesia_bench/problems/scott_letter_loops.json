@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_letter_loops",
+  "problem_text": "Determine how many capital letters in the english alphabet have closed loops. Then determine how many lower case letters in the english alphabet have closed loops. If the answers are the same, multiply them, otherwise add them. Then, count the number of closed loops in your answer, multiply it by 5, and add that to your answer. What is your final answer?",
+  "ground_truth": 15,
+  "topic": "spatial_reasoning",
+  "source": "scott_weiss",
+  "difficulty": "medium",
+  "notes": "Capital with loops: ABDOPQR (7 or 8 depending on convention). Lowercase with loops: abdegopq (7 or 8). Answer: 8+7+0*5=15.",
+  "correct_answer": 15
+}

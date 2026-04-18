@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_prime_sequence",
+  "problem_text": "Consider an ordered list of all the prime numbers, starting from 2. Add the first 2 numbers in this list. If the result is prime, add the next prime, otherwise subtract the next prime. Continue until the result is negative, and multiply that number by -1. What is the final result? If the result will never be negative, answer with 0.",
+  "ground_truth": 16,
+  "topic": "number_theory",
+  "source": "scott_weiss",
+  "difficulty": "easy",
+  "notes": "Problem is very easy but may seem daunting before trying it. GPT-5.3, G3Flash, G3.1ProPreview all succeed.",
+  "correct_answer": 16
+}

@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_labeled_trees",
+  "problem_text": "Count how many 3-level (or shorter) labeled rooted trees have 4 leaves or less. All nodes in the tree, including the root node, are labeled with sequential positive integers starting with 1. Trees with different labels on different nodes are considered different. Trees that are topologically equivalent in 3 dimensions are not considered different. Branches are not allowed to merge with each other. Leaves are nodes with no children. Once you have a count, find the sum of the digits in the count. What is the final sum?",
+  "ground_truth": 26,
+  "topic": "combinatorics",
+  "source": "scott_weiss",
+  "difficulty": "hard",
+  "notes": "Inspired by aimo3_hard_106850a7. Count is 39437. Solved by Opus 4.6 Thinking, Gemini 3.1 Pro Preview, and Gemini 3 Flash Preview.",
+  "correct_answer": 26
+}

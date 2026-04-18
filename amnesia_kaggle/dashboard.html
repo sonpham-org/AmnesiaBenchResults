@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>AmnesiaBench Dashboard</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, sans-serif; background: #0d1117; color: #c9d1d9; display: flex; height: 100vh; }
+
+/* Left: grid */
+#grid-panel { flex: 1; overflow-y: auto; padding: 20px; }
+h1 { color: #58a6ff; margin-bottom: 4px; font-size: 20px; }
+#status { color: #8b949e; font-size: 13px; margin-bottom: 16px; }
+
+table.grid { border-collapse: collapse; width: 100%; }
+table.grid th, table.grid td { padding: 6px 10px; border: 1px solid #30363d; font-size: 12px; text-align: left; }
+table.grid th { background: #161b22; color: #79c0ff; position: sticky; top: 0; z-index: 1; }
+table.grid th.model-col { min-width: 200px; }
+td.problem-id { font-weight: bold; color: #c9d1d9; white-space: nowrap; background: #161b22; position: sticky; left: 0; }
+td.cell { cursor: pointer; vertical-align: top; min-width: 180px; }
+td.cell:hover { background: #1c2333; }
+.cell-solved { background: #0d2818; }
+.cell-inf { background: #1a1a2e; }
+.cell-pending { background: #0d1117; color: #484f58; }
+.u-val { color: #3fb950; } .u-inf { color: #f85149; }
+.s-val { color: #79c0ff; } .s-inf { color: #8b949e; }
+
+/* Right: trace panel */
+#trace-panel { width: 50%; min-width: 500px; max-width: 700px; border-left: 1px solid #30363d; overflow: hidden; display: none; flex-direction: column; }
+#trace-panel.open { display: flex; }
+#trace-header { padding: 12px 16px; border-bottom: 1px solid #30363d; }
+#trace-close { cursor: pointer; float: right; color: #8b949e; font-size: 18px; }
+#trace-close:hover { color: #f85149; }
+#trace-title { color: #58a6ff; font-size: 15px; font-weight: bold; }
+#trace-meta { color: #8b949e; font-size: 11px; margin-top: 4px; }
+
+/* Tabs */
+.tabs { display: flex; border-bottom: 1px solid #30363d; background: #161b22; }
+.tab { padding: 10px 16px; cursor: pointer; color: #8b949e; font-size: 13px; border-bottom: 2px solid transparent; }
+.tab.active { color: #58a6ff; border-bottom-color: #58a6ff; }
+.tab:hover:not(.active) { color: #c9d1d9; }
+.tab-count { display: inline-block; margin-left: 6px; background: #30363d; padding: 1px 6px; border-radius: 10px; font-size: 10px; }
+
+.subtabs { display: flex; border-bottom: 1px solid #30363d; background: #0d1117; padding: 0 12px; }
+.subtab { padding: 8px 14px; cursor: pointer; color: #8b949e; font-size: 12px; border-bottom: 2px solid transparent; }
+.subtab.active { color: #d2a8ff; border-bottom-color: #d2a8ff; }
+.subtab:hover:not(.active) { color: #c9d1d9; }
+
+#trace-body { flex: 1; overflow-y: auto; padding: 12px 16px; }
+
+/* Chat messages */
+.msg { margin: 6px 0; padding: 10px 14px; border-radius: 6px; white-space: pre-wrap; word-wrap: break-word; font-size: 12px; line-height: 1.5; max-height: 500px; overflow-y: auto; }
+.msg-user { background: #161b22; border-left: 3px solid #58a6ff; }
+.msg-asst { background: #1c2333; border-left: 3px solid #3fb950; }
+.msg-label { font-size: 10px; font-weight: bold; margin-bottom: 4px; }
+.msg-label-user { color: #58a6ff; } .msg-label-asst { color: #3fb950; }
+
+/* Cycle label */
+.cycle-label { color: #d2a8ff; font-size: 11px; font-weight: bold; margin: 12px 0 6px 0; padding: 4px 8px; background: #1a1f35; border-radius: 4px; }
+
+/* Sweep table */
+.sweep-table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 11px; }
+.sweep-table th, .sweep-table td { padding: 6px 8px; border: 1px solid #30363d; text-align: left; }
+.sweep-table th { background: #161b22; color: #79c0ff; }
+.sweep-row { cursor: pointer; }
+.sweep-row:hover { background: #161b22; }
+.sweep-detail { display: none; background: #0d1117; }
+.sweep-detail.open { display: table-row; }
+
+.pass { color: #3fb950; font-weight: bold; }
+.fail { color: #f85149; font-weight: bold; }
+.hidden { display: none; }
+</style>
+</head><body>
+
+<div id="grid-panel">
+  <h1>AmnesiaBench Dashboard</h1>
+  <div id="status">Loading...</div>
+  <table id="grid" class="grid"><thead><tr><th>Problem</th></tr></thead><tbody></tbody></table>
+</div>
+
+<div id="trace-panel">
+  <div id="trace-header">
+    <span id="trace-close" onclick="closeTrace()">&times;</span>
+    <div id="trace-title"></div>
+    <div id="trace-meta"></div>
+  </div>
+  <div class="tabs" id="main-tabs"></div>
+  <div id="trace-body"></div>
+</div>
+
+<script>
+const PROBLEMS = [
+  "op_prime_2149519","op_prime_7547","op_labeled_trees","op_closed_loops",
+  "op_prime_sum_negative","op_walking_neighbor_100","op_walking_neighbor_10000",
+  "op_pressure_vessel","op_char_count","op_big_multiply","op_linear_equation",
+  "op_cubic_equation","op_prime_sequence_300","op_stock_cut_3","op_stock_cut_4",
+  "op_stock_cut_5","op_letter_distance_q","op_python_script_1","op_python_script_2",
+  "op_prisoners","op_simulation_5x5x5","op_simulation_10x10x10",
+  "op_color_blocks_10","op_color_blocks_12","op_chess_board"
+];
+
+const MODEL_FILES = [
+  { name: "gemma4:26b", file: "data/runs/gemma4__26b_scott25.json" },
+];
+
+let allData = {};
+let currentResult = null;
+
+function fmt(v) {
+  if (v === "inf" || v === Infinity || v === null || v === undefined) return "inf";
+  if (typeof v === "number") return Math.round(v).toLocaleString();
+  return String(v);
+}
+function isInf(v) {
+  return v === "inf" || v === Infinity || v === null || v === undefined;
+}
+function escHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function renderCell(r) {
+  if (!r) return '<span style="color:#484f58">-</span>';
+  let html = '<div style="line-height:1.6">';
+  html += `<b>U:</b> <span class="${isInf(r.n_while_unbounded)?'u-inf':'u-val'}">${fmt(r.n_while_unbounded)}</span><br>`;
+  html += `<b>Sweep:</b> <span class="${isInf(r.n_reliable_no_compact)?'s-inf':'s-val'}">${fmt(r.n_reliable_no_compact)}</span>`;
+  html += ` <b>+C:</b> <span class="${isInf(r.n_reliable_compact)?'s-inf':'s-val'}">${fmt(r.n_reliable_compact)}</span><br>`;
+  html += `<b>R:</b> <span class="${isInf(r.n_reliable)?'s-inf':'s-val'}">${fmt(r.n_reliable)}</span>`;
+  if (r.wall_time_s) html += ` <span style="color:#484f58;font-size:10px">${Math.round(r.wall_time_s)}s</span>`;
+  html += '</div>';
+  return html;
+}
+
+function renderMsgs(msgs) {
+  if (!msgs || !msgs.length) return '<p style="color:#484f58">No messages</p>';
+  let h = '';
+  for (const m of msgs) {
+    const role = m.role || '?';
+    const cls = role === 'user' ? 'user' : 'asst';
+    let content = m.content || '';
+    // Extract thinking block (wrapped in <thinking>...</thinking>)
+    let thinking = '';
+    const thinkMatch = content.match(/<thinking>([\s\S]*?)<\/thinking>\s*/);
+    if (thinkMatch) {
+      thinking = thinkMatch[1];
+      content = content.replace(thinkMatch[0], '');
+    }
+    h += `<div class="msg msg-${cls}"><div class="msg-label msg-label-${cls}">${role.toUpperCase()}</div>`;
+    if (thinking) {
+      const tid = 'think-' + Math.random().toString(36).slice(2);
+      h += `<div style="margin-bottom:6px;border-left:2px solid #d2a8ff;padding:6px 10px;background:#1a1f35;border-radius:4px">`;
+      h += `<div style="color:#d2a8ff;font-size:10px;font-weight:bold;cursor:pointer" onclick="document.getElementById('${tid}').style.display=(document.getElementById('${tid}').style.display==='none'?'block':'none')">THINKING (click to toggle)</div>`;
+      h += `<div id="${tid}" style="display:block;color:#b19cd9;font-size:11px;margin-top:4px;white-space:pre-wrap">${escHtml(thinking)}</div>`;
+      h += `</div>`;
+    }
+    h += `<div>${escHtml(content)}</div>`;
+    h += `</div>`;
+  }
+  return h;
+}
+
+function renderCycles(traces) {
+  // traces is either a flat list of messages, or a list of cycles (lists of messages)
+  if (!traces || !traces.length) return '<p style="color:#484f58">No trace</p>';
+  if (!Array.isArray(traces[0])) {
+    // Flat list
+    return renderMsgs(traces);
+  }
+  // Multi-cycle
+  let h = '';
+  traces.forEach((cycle, ci) => {
+    h += `<div class="cycle-label">Cycle ${ci}</div>`;
+    h += renderMsgs(cycle);
+  });
+  return h;
+}
+
+function showTrace(modelName, problemId) {
+  const data = allData[modelName];
+  if (!data) return;
+  const r = data.find(x => x.problem_id === problemId);
+  if (!r) return;
+
+  currentResult = r;
+  const panel = document.getElementById('trace-panel');
+  document.getElementById('trace-title').textContent = `${problemId}`;
+  document.getElementById('trace-meta').innerHTML =
+    `${modelName} &mdash; U=${fmt(r.n_while_unbounded)}, R=${fmt(r.n_reliable)} (Sweep=${fmt(r.n_reliable_no_compact)}, +C=${fmt(r.n_reliable_compact)})`;
+
+  const traces = r.traces || {};
+  const tabs = [
+    { id: 'unbounded', label: 'Unbounded', count: (traces.unbounded?.conversations || []).length, available: !!traces.unbounded },
+    { id: 'predict', label: 'Predict', count: 0, available: !!traces.prediction },
+    { id: 'sweep', label: 'Sweep', count: (traces.sweep_no_compact?.entries || []).length, available: !!traces.sweep_no_compact },
+    { id: 'compact', label: 'Compact', count: (traces.sweep_compact?.entries || []).length, available: !!traces.sweep_compact },
+  ];
+
+  const tabsEl = document.getElementById('main-tabs');
+  tabsEl.innerHTML = '';
+  tabs.forEach((t, i) => {
+    const cls = i === 0 ? 'tab active' : 'tab';
+    const dim = t.available ? '' : 'opacity:0.4';
+    const count = t.count > 0 ? `<span class="tab-count">${t.count}</span>` : '';
+    tabsEl.innerHTML += `<div class="${cls}" style="${dim}" onclick="selectTab('${t.id}')">${t.label}${count}</div>`;
+  });
+
+  selectTab('unbounded');
+  panel.classList.add('open');
+}
+
+function selectTab(tabId) {
+  // Update active tab
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => {
+    if (t.textContent.toLowerCase().startsWith(tabId.toLowerCase())) t.classList.add('active');
+  });
+
+  const body = document.getElementById('trace-body');
+  const r = currentResult;
+  const traces = r.traces || {};
+
+  if (tabId === 'unbounded') {
+    const convs = traces.unbounded?.conversations || [];
+    const logs = traces.unbounded?.trial_logs || [];
+    if (!convs.length) {
+      body.innerHTML = '<p style="color:#484f58">No unbounded trace</p>';
+      return;
+    }
+    // Sub-tabs for each trial
+    let h = '<div class="subtabs">';
+    for (let i = 0; i < convs.length; i++) {
+      const log = logs[i] || {};
+      const cls = i === 0 ? 'subtab active' : 'subtab';
+      const ok = log.success;
+      h += `<div class="${cls}" onclick="selectUnbTrial(${i})">Trial ${i} <span class="${ok?'pass':'fail'}">${ok?'\u2713':'\u2717'}</span></div>`;
+    }
+    h += '</div><div id="unb-content"></div>';
+    body.innerHTML = h;
+    selectUnbTrial(0);
+  } else if (tabId === 'predict') {
+    const conv = traces.prediction?.conversation || [];
+    body.innerHTML = `<div style="padding:8px 0"><div style="color:#8b949e;font-size:12px;margin-bottom:8px">attempt=${r.attempt}, n_predicted=${fmt(r.n_predicted)}</div>${renderMsgs(conv)}</div>`;
+  } else if (tabId === 'sweep') {
+    body.innerHTML = renderSweepView(traces.sweep_no_compact?.entries || [], 'sweep');
+  } else if (tabId === 'compact') {
+    body.innerHTML = renderSweepView(traces.sweep_compact?.entries || [], 'compact');
+  }
+}
+
+function selectUnbTrial(idx) {
+  document.querySelectorAll('.subtab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.subtab')[idx].classList.add('active');
+  const r = currentResult;
+  const convs = r.traces?.unbounded?.conversations || [];
+  const logs = r.traces?.unbounded?.trial_logs || [];
+  const log = logs[idx] || {};
+  const conv = convs[idx] || [];
+  const ok = log.success;
+  let h = `<div style="color:#8b949e;font-size:11px;margin-bottom:8px">`;
+  h += `<span class="${ok?'pass':'fail'}">${ok?'SOLVED':log.finish_reason||'FAIL'}</span> &mdash; ${log.tokens_used||0} tokens, ${log.wall_time_s||0}s</div>`;
+  h += renderMsgs(conv);
+  document.getElementById('unb-content').innerHTML = h;
+}
+
+function renderSweepView(entries, prefix) {
+  if (!entries.length) {
+    return '<p style="color:#484f58;padding:16px">No sweep trace (this run predates sweep trace capture)</p>';
+  }
+  // Separate halving vs binary search
+  const halvingLevels = new Set([8192, 4096, 2048, 1024, 512, 256, 128, 64]);
+  const sweep = entries.filter(e => halvingLevels.has(e.N)).sort((a,b) => b.N - a.N);
+  const binary = entries.filter(e => !halvingLevels.has(e.N)).sort((a,b) => b.N - a.N);
+
+  let h = '';
+  h += mkSweepTable('Halving Sweep', sweep, `${prefix}-h`);
+  if (binary.length) {
+    h += mkSweepTable('Binary Search Refinement', binary, `${prefix}-b`);
+  }
+  return h;
+}
+
+function mkSweepTable(title, rows, pfx) {
+  if (!rows.length) return `<h4 style="color:#79c0ff;margin:12px 0 6px 0;font-size:13px">${title}</h4><p style="color:#484f58">No entries</p>`;
+  let h = `<h4 style="color:#79c0ff;margin:12px 0 6px 0;font-size:13px">${title}</h4>`;
+  h += `<table class="sweep-table"><tr><th>N</th><th>Result</th><th>Trials</th></tr>`;
+  rows.forEach((e, i) => {
+    const tid = `${pfx}-${i}-${Date.now()}`;
+    const cls = e.passed ? 'pass' : 'fail';
+    const parts = (e.trials||[]).map(t =>
+      `<span class="${t.success?'pass':'fail'}">${t.finish_reason || '?'}</span>`
+    ).join(', ');
+    h += `<tr class="sweep-row" onclick="document.getElementById('${tid}').classList.toggle('open')"><td><b>N=${e.N}</b></td><td class="${cls}">${e.passed?'PASS':'FAIL'}</td><td>${parts || '-'}</td></tr>`;
+    // Expandable row with traces
+    h += `<tr class="sweep-detail" id="${tid}"><td colspan="3">`;
+    (e.trials||[]).forEach((trial, ti) => {
+      h += `<div style="margin:8px 0;padding:6px;border:1px solid #30363d;border-radius:4px">`;
+      h += `<div style="color:#8b949e;font-size:11px;margin-bottom:4px"><b>Trial ${ti}:</b> <span class="${trial.success?'pass':'fail'}">${trial.finish_reason}</span> (in=${trial.input_tokens||0}, out=${trial.output_tokens||0})</div>`;
+      h += renderCycles(trial.traces || []);
+      h += `</div>`;
+    });
+    h += `</td></tr>`;
+  });
+  h += `</table>`;
+  return h;
+}
+
+function closeTrace() {
+  document.getElementById('trace-panel').classList.remove('open');
+}
+
+async function loadData() {
+  let totalDone = 0;
+  let totalSolved = 0;
+  for (const mf of MODEL_FILES) {
+    try {
+      const resp = await fetch(mf.file + '?t=' + Date.now());
+      if (!resp.ok) { allData[mf.name] = []; continue; }
+      let text = await resp.text();
+      text = text.replace(/Infinity/g, '"inf"').replace(/NaN/g, 'null');
+      const d = JSON.parse(text);
+      allData[mf.name] = d.results || [];
+      totalDone += allData[mf.name].length;
+      totalSolved += allData[mf.name].filter(r => !isInf(r.n_reliable)).length;
+    } catch(e) { allData[mf.name] = []; }
+  }
+
+  const thead = document.querySelector('#grid thead tr');
+  thead.innerHTML = '<th>Problem</th>';
+  for (const mf of MODEL_FILES) {
+    if (allData[mf.name].length > 0) {
+      thead.innerHTML += `<th class="model-col">${mf.name} (${allData[mf.name].length}/25)</th>`;
+    }
+  }
+
+  const tbody = document.querySelector('#grid tbody');
+  tbody.innerHTML = '';
+  for (const pid of PROBLEMS) {
+    let tr = `<tr><td class="problem-id">${pid.replace('op_','')}</td>`;
+    for (const mf of MODEL_FILES) {
+      if (allData[mf.name].length === 0) continue;
+      const r = allData[mf.name].find(x => x.problem_id === pid);
+      const cls = r ? (isInf(r.n_reliable) ? 'cell-inf' : 'cell-solved') : 'cell-pending';
+      const onclick = r ? `onclick="showTrace('${mf.name}','${pid}')"` : '';
+      tr += `<td class="cell ${cls}" ${onclick}>${r ? renderCell(r) : '-'}</td>`;
+    }
+    tr += '</tr>';
+    tbody.innerHTML += tr;
+  }
+
+  document.getElementById('status').textContent =
+    `${totalDone} results | ${totalSolved} solved | Auto-refresh 10s`;
+}
+
+loadData();
+setInterval(loadData, 10000);
+</script>
+</body></html>

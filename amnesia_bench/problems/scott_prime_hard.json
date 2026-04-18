@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_prime_hard",
+  "problem_text": "Check if 2149519 is prime. If so, answer with 1, otherwise answer with the smallest factor greater than 1.",
+  "ground_truth": 367,
+  "topic": "number_theory",
+  "source": "scott_weiss",
+  "difficulty": "medium",
+  "notes": "Opus 4.6 CAN solve this, but is usually too lazy to check everything. Limiting context may actually help so the model doesn't know how long it has been checking.",
+  "correct_answer": 367
+}

@@ -1,0 +1,10 @@
+{
+  "problem_id": "essay_questions",
+  "problem_text": "Four of six possible essay questions will be on the exam. If two questions are in part A and two questions are in part B, and one question must be chosen from both part A and part B, how many essay questions must be studied for?",
+  "ground_truth": 5,
+  "topic": "combinatorics",
+  "source": "compare_judge772_problem_003",
+  "gptoss_120b_pass_rate": 1.0,
+  "gptoss_120b_n_correct": 1,
+  "gptoss_120b_correct_token_avg": 300
+}

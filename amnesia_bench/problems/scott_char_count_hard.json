@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_char_count_hard",
+  "problem_text": "Count all the letters in this question (ignore spaces, punctuation, and digits). Call this count N. Then find the sum of the digits of N. What is the final result?",
+  "ground_truth": 9,
+  "topic": "self_reference",
+  "source": "scott_weiss",
+  "difficulty": "hard",
+  "notes": "N = 126 letters (a-z, A-Z only, ignoring spaces and punctuation). Digit sum of 126 = 1+2+6 = 9. Two-step problem: accurate letter count of 126 characters, then digit sum. Most errors come from miscounting letters.",
+  "correct_answer": 9
+}

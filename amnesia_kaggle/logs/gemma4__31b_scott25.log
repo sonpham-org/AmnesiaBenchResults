@@ -1,0 +1,6 @@
+Model: gemma4:31b  Base URL: http://localhost:11434  Problems: 25 remaining  Ctx: 8192
+
+[1/25] op_prime_2149519 (gt=367)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf

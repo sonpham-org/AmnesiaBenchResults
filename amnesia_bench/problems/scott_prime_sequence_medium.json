@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_prime_sequence_medium",
+  "problem_text": "Consider an ordered list, P, of all the prime numbers, starting from 2. N = 10. For each prime in P, do the following. If N is a multiple of 3, subtract the prime from N. Otherwise, add it to N. Continue until N is greater than 200. What is the final value of N?",
+  "ground_truth": 231,
+  "topic": "number_theory",
+  "source": "scott_weiss",
+  "difficulty": "medium",
+  "notes": "16 steps through primes 2..53. Sequence: 12,9,4,11,22,35,52,71,94,123,92,129,88,131,178,231. Must track divisibility by 3 at each step. Harder than easy (6 steps) but shorter than hard (28 steps).",
+  "correct_answer": 231
+}

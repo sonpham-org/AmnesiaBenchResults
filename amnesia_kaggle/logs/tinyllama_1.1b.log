@@ -1,0 +1,261 @@
+Model: tinyllama:1.1b  Base URL: http://localhost:11434  Problems: 35  Ctx: 8192
+
+[1/35] aimo3_hard_271f3da5 (gt=6)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (3.2s)
+
+[2/35] aimo3_hard_6111f603 (gt=56)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (3.1s)
+
+[3/35] aimo3_hard_e2001d21 (gt=4)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (5.2s)
+
+[4/35] crt_three_congruences (gt=346)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (4.8s)
+
+[5/35] digit_sum_ten (gt=54)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (3.7s)
+
+[6/35] handshakes_10 (gt=45)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (3.7s)
+
+[7/35] milly_grid_walk (gt=624)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=1.0
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (7.6s)
+
+[8/35] modular_power_2_1000 (gt=3)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (6.1s)
+
+[9/35] sum_divisors_720 (gt=2418)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (8.9s)
+
+[10/35] essay_questions (gt=5)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (2.0s)
+
+[11/35] op_prime_2149519 (gt=367)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (5.0s)
+
+[12/35] op_prime_7547 (gt=1)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (4.9s)
+
+[13/35] op_labeled_trees (gt=26)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (9.6s)
+
+[14/35] op_closed_loops (gt=15)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (7.3s)
+
+[15/35] op_prime_sum_negative (gt=16)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (5.8s)
+
+[16/35] op_walking_neighbor_100 (gt=79)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (4.5s)
+
+[17/35] op_walking_neighbor_10000 (gt=0)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (5.7s)
+
+[18/35] op_pressure_vessel (gt=497)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (6.8s)
+
+[19/35] op_char_count (gt=70)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (0.8s)
+
+[20/35] op_big_multiply (gt=45334859443870997609610)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1.0s)
+
+[21/35] op_linear_equation (gt=3)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=3.0
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (29.5s)
+
+[22/35] op_cubic_equation (gt=0)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (20.8s)
+
+[23/35] op_prime_sequence_300 (gt=302)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (5.2s)
+
+[24/35] op_stock_cut_3 (gt=170)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (3.9s)
+
+[25/35] op_stock_cut_4 (gt=185)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (5.2s)
+
+[26/35] op_stock_cut_5 (gt=326)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (4.6s)
+
+[27/35] op_letter_distance_q (gt=525)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (4.5s)
+
+[28/35] op_python_script_1 (gt=517949)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (2.0s)
+
+[29/35] op_python_script_2 (gt=2291)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (5.2s)
+
+[30/35] op_prisoners (gt=5)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (6.9s)
+
+[31/35] op_simulation_5x5x5 (gt=104)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (7.9s)
+
+[32/35] op_simulation_10x10x10 (gt=512)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (10.5s)
+
+[33/35] op_color_blocks_10 (gt=1222)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (7.1s)
+
+[34/35] op_color_blocks_12 (gt=4736)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (6.9s)
+
+[35/35] op_chess_board (gt=973)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (6.4s)
+
+── Scores ──
+  composite_context_efficiency_score       0.0
+  composite_window_prediction_score        0.0
+  composite_success_prediction_score       0.0
+  accuracy_score                           0.0
+  average_cost_per_token_nanodollars       0.0
+  n_problems_scored                        35
+  n_problems_eligible                      35
+  n_problems_solved                        0
+  total_input_tokens                       30801
+  total_output_tokens                      48268
+  total_cost_nanodollars                   0
+
+Total wall time: 226.3s

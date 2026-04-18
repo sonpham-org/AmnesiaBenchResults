@@ -1,0 +1,8 @@
+{
+  "problem_id": "aimo3_hard_f728b4b1",
+  "problem_text": "Triangle $ABC$ is constructed such that $AB>BC>AC$. Points $E$, $F$, and $G$ are drawn from $A$, $B$, and $C$ to their opposite sides respectively. If $\\frac{BE}{EC} = \\frac{7}{12}$, the ratio of $\\frac{AF}{FC}$ can be represented as $\\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. What is the smallest possible sum of $m+n$?",
+  "correct_answer": 26,
+  "ground_truth": 26,
+  "topic": "aimo3",
+  "source": "AIMO3"
+}

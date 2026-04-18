@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_big_multiply",
+  "problem_text": "What is 152312791515 * 297643152574?",
+  "ground_truth": 45334859443870997609610,
+  "topic": "arithmetic",
+  "source": "scott_weiss",
+  "difficulty": "hard",
+  "notes": "Very hard for Opus 4.6 thinking. Only succeeds with extra prompting.",
+  "correct_answer": 45334859443870997609610
+}

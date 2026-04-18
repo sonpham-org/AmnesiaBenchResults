@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_char_count_medium",
+  "problem_text": "How many times does the letter 'e' appear in this entire question, including this very sentence? Multiply that count by 3. What is the result?",
+  "ground_truth": 48,
+  "topic": "self_reference",
+  "source": "scott_weiss",
+  "difficulty": "medium",
+  "notes": "16 occurrences of 'e' in the sentence. Multiply by 3 = 48. Harder than easy because model must identify and count a specific letter across the full sentence, then do arithmetic. The quoted 'e' itself counts as an occurrence.",
+  "correct_answer": 48
+}

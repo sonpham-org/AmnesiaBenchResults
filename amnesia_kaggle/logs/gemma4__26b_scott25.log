@@ -1,0 +1,191 @@
+Model: gemma4:26b  Base URL: http://localhost:11434  Problems: 25 remaining  Ctx: 8192
+
+[1/25] op_prime_2149519 (gt=367)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1249.3s)
+
+[2/25] op_prime_7547 (gt=1)
+  unbounded: solved=True n_while_unbounded=20680.666666666668
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=4608.0
+  n_reliable = 4608.0  (1446.4s)
+
+[3/25] op_labeled_trees (gt=26)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1180.7s)
+
+[4/25] op_closed_loops (gt=15)
+  unbounded: solved=True n_while_unbounded=24093.5
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=2944.0
+  n_reliable = 2944.0  (1320.4s)
+
+[5/25] op_prime_sum_negative (gt=16)
+  unbounded: solved=True n_while_unbounded=13623.333333333334
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=1856.0
+  n_reliable = 1856.0  (931.7s)
+
+[6/25] op_walking_neighbor_100 (gt=79)
+  unbounded: solved=True n_while_unbounded=22989.0
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1155.1s)
+
+[7/25] op_walking_neighbor_10000 (gt=0)
+  unbounded: solved=True n_while_unbounded=24172.333333333332
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1059.3s)
+
+[8/25] op_pressure_vessel (gt=497)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1277.8s)
+
+[9/25] op_char_count (gt=70)
+  unbounded: solved=True n_while_unbounded=16295.333333333334
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (817.5s)
+
+[10/25] op_big_multiply (gt=45334859443870997609610)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1281.6s)
+
+[11/25] op_linear_equation (gt=3)
+  unbounded: solved=True n_while_unbounded=2412.6666666666665
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=2816.0
+  compact: n_reliable=4736.0
+  n_reliable = 2816.0  (729.0s)
+
+[12/25] op_cubic_equation (gt=0)
+  unbounded: solved=True n_while_unbounded=6502.333333333333
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=4096.0
+  compact: n_reliable=4352.0
+  n_reliable = 4096.0  (1397.1s)
+
+[13/25] op_prime_sequence_300 (gt=302)
+  unbounded: solved=True n_while_unbounded=14845.333333333334
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (919.3s)
+
+[14/25] op_stock_cut_3 (gt=170)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (999.7s)
+
+[15/25] op_stock_cut_4 (gt=185)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1270.6s)
+
+[16/25] op_stock_cut_5 (gt=326)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1213.4s)
+
+[17/25] op_letter_distance_q (gt=525)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1195.4s)
+
+[18/25] op_python_script_1 (gt=517949)
+  unbounded: solved=True n_while_unbounded=17877.666666666668
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (827.8s)
+
+[19/25] op_python_script_2 (gt=2291)
+  unbounded: solved=True n_while_unbounded=17282.333333333332
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (896.2s)
+
+[20/25] op_prisoners (gt=5)
+  unbounded: solved=True n_while_unbounded=18615.0
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1113.6s)
+
+[21/25] op_simulation_5x5x5 (gt=104)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1464.0s)
+
+[22/25] op_simulation_10x10x10 (gt=512)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1384.2s)
+
+[23/25] op_color_blocks_10 (gt=1222)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1146.3s)
+
+[24/25] op_color_blocks_12 (gt=4736)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1253.3s)
+
+[25/25] op_chess_board (gt=973)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (1306.8s)
+
+── Scores ──
+  composite_context_efficiency_score       0.5553308194387655
+  composite_window_prediction_score        0.0
+  composite_success_prediction_score       0.2
+  accuracy_score                           0.48
+  average_cost_per_token_nanodollars       0.0
+  n_problems_scored                        25
+  n_problems_eligible                      25
+  n_problems_solved                        12
+  total_input_tokens                       20811
+  total_output_tokens                      1820116
+  total_cost_nanodollars                   0
+
+Total wall time: 28836.9s

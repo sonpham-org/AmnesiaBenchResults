@@ -1,0 +1,12 @@
+{
+  "problem_id": "modular_power_2_1000",
+  "problem_text": "Find the remainder when $2^{1000}$ is divided by 13. Give your answer as an integer from 0 to 12.",
+  "ground_truth": 3,
+  "topic": "number_theory",
+  "source": "competition_math",
+  "gptoss_120b_pass_rate": 0.5,
+  "gptoss_120b_n_correct": 8,
+  "gptoss_120b_correct_token_avg": 1500,
+  "difficulty": "easy",
+  "notes": "ord_13(2) = 12. 1000 mod 12 = 4. 2^4 = 16 ≡ 3 mod 13."
+}

@@ -1,0 +1,10 @@
+{
+  "problem_id": "milly_grid_walk",
+  "problem_text": "Milly walks from her home at (0,0) to the gym at (6,6) in a 6x6 grid, always taking the shortest path. She buys coffee at either (2,2) or (4,4) on her way. How many different shortest paths can Milly take to the gym?",
+  "ground_truth": 624,
+  "topic": "combinatorics",
+  "source": "compare_judge772_problem_001",
+  "gptoss_120b_pass_rate": 1.0,
+  "gptoss_120b_n_correct": 1,
+  "gptoss_120b_correct_token_avg": 500
+}

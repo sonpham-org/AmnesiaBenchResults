@@ -1,0 +1,11 @@
+{
+  "problem_id": "digit_sum_ten",
+  "problem_text": "How many 3-digit positive integers (from 100 to 999 inclusive) have a digit sum equal to 10?",
+  "ground_truth": 54,
+  "topic": "comb_counting",
+  "source": "competition_math",
+  "gptoss_120b_pass_rate": 0.5625,
+  "gptoss_120b_n_correct": 9,
+  "gptoss_120b_correct_token_avg": 1800,
+  "difficulty": "medium"
+}

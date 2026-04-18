@@ -1,0 +1,12 @@
+{
+  "problem_id": "handshakes_10",
+  "problem_text": "At a party with 10 people, each person shakes hands with every other person exactly once. What is the total number of handshakes?",
+  "ground_truth": 45,
+  "topic": "comb_counting",
+  "source": "competition_math",
+  "gptoss_120b_pass_rate": 0.625,
+  "gptoss_120b_n_correct": 10,
+  "gptoss_120b_correct_token_avg": 800,
+  "difficulty": "easy",
+  "notes": "C(10,2) = 10*9/2 = 45."
+}

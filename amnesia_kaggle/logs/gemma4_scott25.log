@@ -1,0 +1,20 @@
+Model: gemma4:latest  Base URL: http://localhost:11434  Problems: 25  Ctx: 8192
+
+[1/25] op_prime_2149519 (gt=367)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf
+  compact: n_reliable=inf
+  n_reliable = inf  (419.0s)
+
+[2/25] op_prime_7547 (gt=1)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=4096.0
+  compact: n_reliable=3584.0
+  n_reliable = 3584.0  (1557.9s)
+
+[3/25] op_labeled_trees (gt=26)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf
+  no-compact: n_reliable=inf

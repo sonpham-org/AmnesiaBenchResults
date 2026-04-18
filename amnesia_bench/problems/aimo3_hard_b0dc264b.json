@@ -1,0 +1,8 @@
+{
+  "problem_id": "aimo3_hard_b0dc264b",
+  "problem_text": "Given the group $(G, *)$ with $G = \\{a, b, c, d, f, g, h, k\\}$ and identity $k$, and the following operations: $a * b = c$, $b * a = d$, $f * f = a$, $g * g = b$, $h * h = c$. How many self-inverses does $(G, *)$ have?",
+  "correct_answer": 2,
+  "ground_truth": 2,
+  "topic": "aimo3",
+  "source": "AIMO3"
+}

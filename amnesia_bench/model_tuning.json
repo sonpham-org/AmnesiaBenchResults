@@ -1,0 +1,55 @@
+{
+  "description": "Optimal Ollama settings per model on DGX Spark (GB10, 128GB unified)",
+  "date": "2026-04-04",
+  "global_settings": {
+    "flash_attn": true,
+    "kv_cache_type": "q4_0",
+    "comment": "FA + q4_0 KV is the best combo across all tested models on GB10"
+  },
+  "models": {
+    "qwen3.5:35b": {
+      "machine": "Spark A (gx10-a108)",
+      "size_gb": 23,
+      "params": "35B MoE (3.5B active)",
+      "baseline": {"pp_tok_s": 96, "tg_tok_s": 22},
+      "optimized": {"pp_tok_s": 283, "tg_tok_s": 58},
+      "settings": {"flash_attn": true, "kv_cache_type": "q4_0"},
+      "speedup": "2.6x"
+    },
+    "qwen3.5:9b": {
+      "machine": "Spark A (gx10-a108)",
+      "size_gb": 6.6,
+      "params": "9B dense",
+      "baseline": {"pp_tok_s": 300, "tg_tok_s": 34},
+      "optimized": {"pp_tok_s": 358, "tg_tok_s": 34},
+      "settings": {"flash_attn": true, "kv_cache_type": "q4_0"},
+      "speedup": "1.2x pp, tg unchanged"
+    },
+    "mistral-small3.2": {
+      "machine": "Spark B (gx10-a424, via tunnel localhost:11435)",
+      "size_gb": 15,
+      "params": "24B dense",
+      "baseline": {"pp_tok_s": 80, "tg_tok_s": 21},
+      "optimized": {"pp_tok_s": 7318, "tg_tok_s": 21},
+      "settings": {"flash_attn": true, "kv_cache_type": "q4_0"},
+      "speedup": "91x pp (KV cache hit), tg unchanged",
+      "note": "pp=7318 likely reflects cached prompt. Real pp ~80-200. tg is bandwidth-bound at 21 tok/s"
+    },
+    "glm-4.7-flash": {
+      "machine": "Spark A (gx10-a108)",
+      "size_gb": 19,
+      "params": "30B MoE (3B active)",
+      "status": "pulling",
+      "settings": {"flash_attn": true, "kv_cache_type": "q4_0"},
+      "note": "Tune after download completes"
+    },
+    "nemotron-3-super": {
+      "machine": "Spark B (gx10-a424)",
+      "size_gb": 87,
+      "params": "120B MoE (12B active)",
+      "status": "pulling",
+      "settings": {"flash_attn": true, "kv_cache_type": "q4_0"},
+      "note": "Tune after download completes"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "problem_id": "aimo3_hard_271f3da5",
+  "problem_text": "Three accounting machines and 2 operators can complete the work done by 10 clerks in two days in just one day. How many accounting machines would be required to complete the work done by 40 clerks in one day?",
+  "ground_truth": 6,
+  "topic": "comb_counting",
+  "source": "aimo3_hard",
+  "gptoss_120b_pass_rate": 0.5,
+  "gptoss_120b_n_correct": 8,
+  "gptoss_120b_correct_token_avg": 3162,
+  "correct_answer": 6
+}

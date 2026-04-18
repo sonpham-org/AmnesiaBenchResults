@@ -1,0 +1,282 @@
+[
+  {
+    "problem_id": "aimo3_hard_271f3da5",
+    "problem_text": "Three accounting machines and 2 operators can complete the work done by 10 clerks in two days in just one day. How many accounting machines would be required to complete the work done by 40 clerks in one day?",
+    "ground_truth": "6",
+    "source": "aimo3_hard",
+    "topic": "comb_counting"
+  },
+  {
+    "problem_id": "aimo3_hard_6111f603",
+    "problem_text": "How many Binary Search trees with 6 nodes have a height of 4?",
+    "ground_truth": "56",
+    "source": "aimo3_hard",
+    "topic": "comb_graph"
+  },
+  {
+    "problem_id": "aimo3_hard_e2001d21",
+    "problem_text": "Given the sequence $(2, 3, 5, 4)$, calculate $\\limsup_{n\\to\\infty} x_n$ using the definition $\\limsup_{n\\to\\infty} x_n:=\\inf_n(\\sup_{k\\geq n}x_k)$.",
+    "ground_truth": "4",
+    "source": "aimo3_hard",
+    "topic": "alg_sequences"
+  },
+  {
+    "problem_id": "crt_three_congruences",
+    "problem_text": "Find the smallest positive integer $n$ satisfying all three congruences simultaneously:\n$$n \\equiv 3 \\pmod{7}$$\n$$n \\equiv 5 \\pmod{11}$$\n$$n \\equiv 8 \\pmod{13}$$",
+    "ground_truth": "346",
+    "source": "competition_math",
+    "topic": "number_theory"
+  },
+  {
+    "problem_id": "digit_sum_ten",
+    "problem_text": "How many 3-digit positive integers (from 100 to 999 inclusive) have a digit sum equal to 10?",
+    "ground_truth": "54",
+    "source": "competition_math",
+    "topic": "comb_counting"
+  },
+  {
+    "problem_id": "handshakes_10",
+    "problem_text": "At a party with 10 people, each person shakes hands with every other person exactly once. What is the total number of handshakes?",
+    "ground_truth": "45",
+    "source": "competition_math",
+    "topic": "comb_counting"
+  },
+  {
+    "problem_id": "milly_grid_walk",
+    "problem_text": "Milly walks from her home at (0,0) to the gym at (6,6) in a 6x6 grid, always taking the shortest path. She buys coffee at either (2,2) or (4,4) on her way. How many different shortest paths can Milly take to the gym?",
+    "ground_truth": "624",
+    "source": "compare_judge772_problem_001",
+    "topic": "combinatorics"
+  },
+  {
+    "problem_id": "modular_power_2_1000",
+    "problem_text": "Find the remainder when $2^{1000}$ is divided by 13. Give your answer as an integer from 0 to 12.",
+    "ground_truth": "3",
+    "source": "competition_math",
+    "topic": "number_theory"
+  },
+  {
+    "problem_id": "sum_divisors_720",
+    "problem_text": "Find the sum of all positive divisors of 720. (That is, compute $\\sigma(720)$.)",
+    "ground_truth": "2418",
+    "source": "competition_math",
+    "topic": "number_theory"
+  },
+  {
+    "problem_id": "essay_questions",
+    "problem_text": "Four of six possible essay questions will be on the exam. If two questions are in part A and two questions are in part B, and one question must be chosen from both part A and part B, how many essay questions must be studied for?",
+    "ground_truth": "5",
+    "source": "compare_judge772_problem_003",
+    "topic": "combinatorics"
+  },
+  {
+    "problem_id": "op_prime_2149519",
+    "problem_text": "Check if 2149519 is prime. If so, answer with 1, otherwise answer with the smallest factor greater than 1.",
+    "ground_truth": "367",
+    "source": "original_problems_4_10_26",
+    "topic": "number_theory"
+  },
+  {
+    "problem_id": "op_prime_7547",
+    "problem_text": "Check if 7547 is prime. If so, answer with 1, otherwise answer with 0.",
+    "ground_truth": "1",
+    "source": "original_problems_4_10_26",
+    "topic": "number_theory"
+  },
+  {
+    "problem_id": "op_labeled_trees",
+    "problem_text": "Count how many 3-level (or shorter) labeled rooted trees have 4 leaves or less. All nodes in the tree, including the root node, are labeled with sequential positive integers starting with 1. Trees with different labels on different nodes are considered different. Trees that are topologically equivalent in 3 dimensions are not considered different. Branches are not allowed to merge with each other. Leaves are nodes with no children. Once you have a count, find the sum of the digits in the count. What is the final sum?",
+    "ground_truth": "26",
+    "source": "original_problems_4_10_26",
+    "topic": "comb_trees"
+  },
+  {
+    "problem_id": "op_closed_loops",
+    "problem_text": "Determine how many capital letters in the english alphabet have closed loops. Then determine how many lower case letters in the english alphabet have closed loops. If the answers are the same, multiply them, otherwise add them. Then, count the number of closed loops in your answer, multiply it by 5, and add that to your answer. What is your final answer?",
+    "ground_truth": "15",
+    "source": "original_problems_4_10_26",
+    "topic": "language_reasoning"
+  },
+  {
+    "problem_id": "op_prime_sum_negative",
+    "problem_text": "Consider an ordered list of all the prime numbers, starting from 2. Add the first 2 numbers in this list. If the result is prime, add the next prime, otherwise subtract the next prime. Continue until the result is negative, and multiply that number by -1. What is the final result? If the result will never be negative, answer with 0.",
+    "ground_truth": "16",
+    "source": "original_problems_4_10_26",
+    "topic": "number_theory"
+  },
+  {
+    "problem_id": "op_walking_neighbor_100",
+    "problem_text": "I'm about to start walking towards my neighbor who lives exactly 1.6 miles away from me as the crow flies. We live in a city where the streets are all oriented perfectly with North/South or East/West, and we both have to walk on these streets. The North/South distance between us is twice as long as the East/West distance. I walk at 2.71 miles per hour, and he walks at 2.63 miles per hour. He will start walking towards me 24 seconds before I leave. In order to ensure that we don't take different paths, we agree that I should walk South first and then East, and he will walk West first and then North. Assuming idealized conditions and no sources of error, calculate how far I will be from my friend's house (as the crow flies) when we meet. Round this number down to the nearest hundredth of a mile. Then, multiply that number by 100. What number would need to be subtracted from the result in order to get a perfect multiple of 100.",
+    "ground_truth": "79",
+    "source": "original_problems_4_10_26",
+    "topic": "word_problem"
+  },
+  {
+    "problem_id": "op_walking_neighbor_10000",
+    "problem_text": "I'm about to start walking towards my neighbor who lives exactly 1.6 miles away from me as the crow flies. We live in a city where the streets are all oriented perfectly with North/South or East/West, and we both have to walk on these streets. The North/South distance between us is twice as long as the East/West distance. I walk at 2.71 miles per hour, and he walks at 2.63 miles per hour. He will start walking towards me 24 seconds before I leave. In order to ensure that we don't take different paths, we agree that I should walk South first and then East, and he will walk West first and then North. Assuming idealized conditions and no sources of error, calculate how far I will be from my friend's house (as the crow flies) when we meet. Round this number down to the nearest hundredth of a mile. Then, multiply that number by 10000. What number would need to be subtracted from the result in order to get a perfect multiple of 100.",
+    "ground_truth": "0",
+    "source": "original_problems_4_10_26",
+    "topic": "word_problem"
+  },
+  {
+    "problem_id": "op_pressure_vessel",
+    "problem_text": "I'm working on a packaging plan for some boxes of extremely sensitive electrical components. To preserve the functionality of these components over time, they must be stored inside a cylindrical pressure vessel filled with high-pressure argon. First, the components are stacked inside cubic cardboard boxes. Each box is 300mm long in every dimension. Our customer requires the boxes to be stacked with 12 boxes per layer, and they don't want us to stagger the boxes within each layer by less than 1 box length. Find the pressure vessel circumferences for different arrangements of the boxes, and decide which 2 arrangements would result in the smallest circumferences. Find the difference between the two smallest circumferences in mm. Then round this value down to the nearest integer. What is this number without units? In case you need any square root values, here are some common ones that may be helpful: sqrt(2)~1.41421, sqrt(3)~1.73205, sqrt(5)~2.23607, sqrt(6)~2.44949, sqrt(7)~2.64575.",
+    "ground_truth": "497",
+    "source": "original_problems_4_10_26",
+    "topic": "geometry"
+  },
+  {
+    "problem_id": "op_char_count",
+    "problem_text": "How many characters are in this sentence, including the question mark?",
+    "ground_truth": "70",
+    "source": "original_problems_4_10_26",
+    "topic": "language_reasoning"
+  },
+  {
+    "problem_id": "op_big_multiply",
+    "problem_text": "What is 152312791515 * 297643152574?",
+    "ground_truth": "45334859443870997609610",
+    "source": "original_problems_4_10_26",
+    "topic": "arithmetic"
+  },
+  {
+    "problem_id": "op_linear_equation",
+    "problem_text": "Solve for x: 7(2x - 1) - 3(4x + 5) + 2(x - 6) = 4(x - 3) - 5(2x - 1) + 3",
+    "ground_truth": "3",
+    "source": "original_problems_4_10_26",
+    "topic": "algebra"
+  },
+  {
+    "problem_id": "op_cubic_equation",
+    "problem_text": "Solve for the real solution to 3(x - 1)^3 + 2(x + 6)^2 - 2(x + 1)^2 = 67. If there multiple real solutions, add them together. Round your final answer to the nearest integer.",
+    "ground_truth": "0",
+    "source": "original_problems_4_10_26",
+    "topic": "algebra"
+  },
+  {
+    "problem_id": "op_prime_sequence_300",
+    "problem_text": "Consider an ordered list, P, of all the prime numbers, starting from 2. N=10. For each prime in P, do the following. If N is a multiple of 3, subtract the prime from N. Otherwise, add it to N. Continue until N is greater than 300. What is the final value of N?",
+    "ground_truth": "302",
+    "source": "original_problems_4_10_26",
+    "topic": "number_theory"
+  },
+  {
+    "problem_id": "op_stock_cut_3",
+    "problem_text": "I have some parts that I have to cut out of a 240\" stock length. I need 200 pieces cut at 50\" long, 300 pieces cut at 85\" long, and 100 pieces cut at 30\" long. What is the lowest integer number of stock lengths that I'll need to use?",
+    "ground_truth": "170",
+    "source": "original_problems_4_10_26",
+    "topic": "optimization"
+  },
+  {
+    "problem_id": "op_stock_cut_4",
+    "problem_text": "I have some parts that I have to cut out of a 240\" stock length. I need 200 pieces cut at 50\" long, 300 pieces cut at 85\" long, 100 pieces cut at 30\" long, and 145 pieces cut at 27\" long. What is the lowest integer number of stock lengths that I'll need to use?",
+    "ground_truth": "185",
+    "source": "original_problems_4_10_26",
+    "topic": "optimization"
+  },
+  {
+    "problem_id": "op_stock_cut_5",
+    "problem_text": "I have some parts that I have to cut out of a 240\" stock length. I need 200 pieces cut at 50\" long, 300 pieces cut at 85\" long, 100 pieces cut at 30\" long, and 145 pieces cut at 27\" long, and 342 pieces cut at 101\" long. What is the lowest integer number of stock lengths that I'll need to use?",
+    "ground_truth": "326",
+    "source": "original_problems_4_10_26",
+    "topic": "optimization"
+  },
+  {
+    "problem_id": "op_letter_distance_q",
+    "problem_text": "Sort the words in this problem statement (starting with this sentence) by their numerical values, in ascending order. To calculate the values for each word, add up the values of each letter in that word. To determine the values of each letter, find the integer distance between that letter and the letter Q in the English alphabet. For example, p has a value of 1, q has a value of 0, and R has a value of 1. Ignore punctuation, numbers, capitalization, and words with less than two letters. If there are ties, just sort the tied words in ascending alphabetical order. Duplicate words are acceptable. Once you have your sorted list, concatenate all of the words into a single string. What is the positive integer position of the third s from the end of this string, assuming python indexing rules?",
+    "ground_truth": "525",
+    "source": "original_problems_4_10_26",
+    "topic": "language_reasoning"
+  },
+  {
+    "problem_id": "op_python_script_1",
+    "problem_text": "What number will be printed while executing the following Python 3 script?\n\n```python\ndef calculate_value():\n    x = 7\n    y = 3\n    z = 0\n    for i in range(1, 21):\n        if x % 2 == 0:\n            x = (x // 2) + y\n            y = y + 1\n        else:\n            x = (x * 3) + 1 - y\n            y = y - 2\n        \n        if y < 0:\n            y = y + i\n            \n        z += x - y\n        \n    return z\n\nprint(calculate_value())\n```",
+    "ground_truth": "517949",
+    "source": "original_problems_4_10_26",
+    "topic": "code_tracing"
+  },
+  {
+    "problem_id": "op_python_script_2",
+    "problem_text": "What number will be printed while executing the following Python 3 script?\n\n```python\nimport re\n\ndef analyze_logs():\n    log_data = \"\"\"[SYS] temp=45C fan=1200rpm status=OK\n    [USR] temp=35C fan=800rpm status=OK\n    [SYS] temp=105C fan=3000rpm status=WARN\n    [SYS] temp=50C fan=0rpm status=ERR\n    [SYS] temp=12C fan=1500rpm status=OK\n    [sys] temp=60C fan=2000rpm status=OK\n    [SYS] temp=85C fan=2500rpm status=WARN\n    [SYS] temp=99C fan=max status=WARN\n    [SYS] temp=-5C fan=1000rpm status=ERR\n    [SYS] temp=40C, fan=1100rpm status=OK\n    [SYS] temp=45C fan=1200rpm status=OK\n    [SYS] temp=30C fan=1000rpm status=OK\n    [SYS] temp=65C fan=1800rpm status=WARN\n    [SYS] temp=120C fan=0800rpm status=ERR\n    [SYS] temp=55C fan=1900rpm status=OK!\n    [SYS] temp=50C fan=1999rpm status=OK\n    [SYS] temp=51C fan=2000rpm status=OK\"\"\"\n\n    # regex matching start and end of string\n    pattern = re.compile(r\"\\[SYS\\] temp=(-?\\d{1,3})C(?:,)?\\s*fan=(\\d{1,4})rpm status=(OK|WARN|ERR)(?:!)?\", re.IGNORECASE)\n    total_severity = 0\n    for line in log_data.split('\\n'):\n        if not line:\n            continue\n        match = pattern.search(line)\n        if match:\n            temp = int(match.group(1))\n            fan = int(match.group(2))\n            status = match.group(3)\n\n            # Base severity calculation\n            if status == \"OK\":\n                total_severity += temp\n            elif status == \"WARN\":\n                total_severity += (temp * 2) + (fan // 100)\n            elif status == \"ERR\":\n                total_severity -= (fan // 10)\n\n            # Additional penalty condition\n            if temp > 50 and fan < 2000:\n                total_severity += 500\n    return total_severity\n\nprint(analyze_logs())\n```",
+    "ground_truth": "2291",
+    "source": "original_problems_4_10_26",
+    "topic": "code_tracing"
+  },
+  {
+    "problem_id": "op_prisoners",
+    "problem_text": "20 prisoners are separated into individual cells. The cells are arranged in two lines of 10 cells which are separated by a hallway. This set up allows inmates to pass notes to their 2 neighboring cells (or 1 neighboring cell if the inmate is in an end cell) and to read notes from the 3 closest cells across the hallway (or the 2 closest cells if the inmate is in an end cell). Each inmate is uniquely assigned an ID number that happens to be prime. The warden jokingly tells them he'll release everyone if any inmate can tell him the product of every inmate's ID number, thinking that doing so would be impossible without a calculator and close communication. The desperate inmates try anyway, knowing that their math skills are flawless. Every hour, each inmate displays a number to their opposing cells and passes a note with that same number to their adjacent cells. They spend the rest of the hour calculating. How many iterations are required before an inmate can calculate the product that will get the warden to release everyone?",
+    "ground_truth": "5",
+    "source": "original_problems_4_10_26",
+    "topic": "logic_puzzle"
+  },
+  {
+    "problem_id": "op_simulation_5x5x5",
+    "problem_text": "A simulation cluster contains 125 units arranged in a 5x5x5 grid. Each unit can hold one bit and can read the bit values of all of the units in its Moore neighborhood (e.g. corner units have 7 neighbors and central units have 26 neighbors). Every unit starts with a value of 0 except the centermost 27 units, which all contain 1. During each clock cycle, the units read the bits from their neighbors. If they read more 0s than 1s, they toggle their own bit value. How many bits are set to 1 after 15374 clock cycles?",
+    "ground_truth": "104",
+    "source": "original_problems_4_10_26",
+    "topic": "simulation"
+  },
+  {
+    "problem_id": "op_simulation_10x10x10",
+    "problem_text": "A simulation cluster contains 1000 units arranged in a 10x10x10 grid. Each unit stores one bit value and can read the bits of all units in its Moore neighborhood (e.g. corner units have 7 neighbors and central units have 26 neighbors). Initially, the 100 units on the z=0 face are active (bit = 1). All others are inactive (bit = 0). Each cycle, every inactive unit that sees 9 or more active neighbors becomes active. Active units remain active permanently. How many units are active after 8 clock cycles?",
+    "ground_truth": "512",
+    "source": "original_problems_4_10_26",
+    "topic": "simulation"
+  },
+  {
+    "problem_id": "op_color_blocks_10",
+    "problem_text": "How many unique color sequences can we achieve by arranging 10 colored blocks? There are 4 red blocks, 3 green blocks, and 3 blue blocks. The first block must be red, and there should be no strings of more than 2 blocks containing the same color.",
+    "ground_truth": "1222",
+    "source": "original_problems_4_10_26",
+    "topic": "combinatorics"
+  },
+  {
+    "problem_id": "op_color_blocks_12",
+    "problem_text": "How many unique color sequences can we achieve by arranging 12 colored blocks? There are 4 red blocks, 5 green blocks, and 3 blue blocks. The first block must be red, and there should be no strings of more than 2 blocks containing the same color.",
+    "ground_truth": "4736",
+    "source": "original_problems_4_10_26",
+    "topic": "combinatorics"
+  },
+  {
+    "problem_id": "op_chess_board",
+    "problem_text": "You are playing chess, and the game board state is shown below. You are playing as white, and it's your turn. The black pieces are lower case and the white are upper case. How many board states are possible after both you and your opponent make your next moves?\n\n8  r n . q k b n r\n7  p p . b p . . p\n6  . . . p . p p .\n5  . B p . . . . Q\n4  . . . . P . . .\n3  N . P . . . . .\n2  P P . P . P P P\n1  R . B . K . N R\n   a b c d e f g h",
+    "ground_truth": "973",
+    "source": "original_problems_4_10_26",
+    "topic": "game_state"
+  },
+  {
+    "problem_id": "scott_char_count_medium",
+    "problem_text": "How many times does the letter 'e' appear in this entire question, including this very sentence? Multiply that count by 3. What is the result?",
+    "ground_truth": "48",
+    "source": "scott_weiss_expanded",
+    "topic": "language_reasoning"
+  },
+  {
+    "problem_id": "scott_char_count_hard",
+    "problem_text": "Count all the letters in this question (ignore spaces, punctuation, and digits). Call this count N. Then find the sum of the digits of N. What is the final result?",
+    "ground_truth": "9",
+    "source": "scott_weiss_expanded",
+    "topic": "language_reasoning"
+  },
+  {
+    "problem_id": "scott_prime_medium",
+    "problem_text": "Check if 847123 is prime. If so, answer with 1, otherwise answer with the smallest factor greater than 1.",
+    "ground_truth": "263",
+    "source": "scott_weiss_expanded",
+    "topic": "number_theory"
+  },
+  {
+    "problem_id": "scott_prime_sequence_medium",
+    "problem_text": "Consider an ordered list, P, of all the prime numbers, starting from 2. N = 10. For each prime in P, do the following. If N is a multiple of 3, subtract the prime from N. Otherwise, add it to N. Continue until N is greater than 200. What is the final value of N?",
+    "ground_truth": "231",
+    "source": "scott_weiss_expanded",
+    "topic": "number_theory"
+  },
+  {
+    "problem_id": "scott_prime_sequence_hard",
+    "problem_text": "Consider an ordered list, P, of all the prime numbers, starting from 2. N = 10. For each prime in P, do the following. If N is a multiple of 3, subtract the prime from N. Otherwise, add it to N. Continue until N is greater than 500. What is the final value of N?",
+    "ground_truth": "601",
+    "source": "scott_weiss_expanded",
+    "topic": "number_theory"
+  }
+]

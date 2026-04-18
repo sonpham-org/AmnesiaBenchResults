@@ -1,0 +1,8 @@
+{
+  "problem_id": "aimo3_hard_5f9595ae",
+  "problem_text": "In an acute triangle $ABC$ with $\\angle A = 30\u00b0$, a circle with diameter $BC$ intersects $AB$ and $AC$ at points $D$ and $E$, respectively. Find the ratio of the area of $\\triangle ADC$ to the area of quadrilateral $DBCE$.",
+  "correct_answer": 3,
+  "topic": "aimo3",
+  "source": "AIMO3",
+  "ground_truth": 3
+}

@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_pressure_vessel",
+  "problem_text": "I'm working on a packaging plan for some boxes of extremely sensitive electrical components. To preserve the functionality of these components over time, they must be stored inside a cylindrical pressure vessel filled with high-pressure argon. First, the components are stacked inside cubic cardboard boxes. Each box is 300mm long in every dimension. Our customer requires the boxes to be stacked with 12 boxes per layer, and they don't want us to stagger the boxes within each layer by less than 1 box length. Find the pressure vessel circumferences for different arrangements of the boxes, and decide which 2 arrangements would result in the smallest circumferences. Find the difference between the two smallest circumferences in mm. Then round this value down to the nearest integer. What is this number without units? In case you need any square root values, here are some common ones that may be helpful: sqrt(2)~1.41421, sqrt(3)~1.73205, sqrt(5)~2.23607, sqrt(6)~2.44949, sqrt(7)~2.64575.",
+  "ground_truth": 497,
+  "topic": "geometry",
+  "source": "scott_weiss",
+  "difficulty": "hard",
+  "notes": "Inspired by aimo3_hard_28663f9c. 3.1 Flash succeeds but may overfit on fat-cross arrangement. Opus 4.6 thinking succeeds.",
+  "correct_answer": 497
+}

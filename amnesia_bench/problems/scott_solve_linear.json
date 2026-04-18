@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_solve_linear",
+  "problem_text": "Solve for x: 7(2x - 1) - 3(4x + 5) + 2(x - 6) = 4(x - 3) - 5(2x - 1) + 3",
+  "ground_truth": 3,
+  "topic": "algebra",
+  "source": "scott_weiss",
+  "difficulty": "easy",
+  "notes": "Easy but multiple steps.",
+  "correct_answer": 3
+}

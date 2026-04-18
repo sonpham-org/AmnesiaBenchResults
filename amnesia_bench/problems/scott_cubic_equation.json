@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_cubic_equation",
+  "problem_text": "Solve for the real solution to 3(x - 1)^3 + 2(x + 6)^2 - 2(x + 1)^2 = 67. If there multiple real solutions, add them together. Round your final answer to the nearest integer.",
+  "ground_truth": 0,
+  "topic": "algebra",
+  "source": "scott_weiss",
+  "difficulty": "medium",
+  "notes": "Fairly easy but multiple steps. Seems medium difficulty at first glance.",
+  "correct_answer": 0
+}

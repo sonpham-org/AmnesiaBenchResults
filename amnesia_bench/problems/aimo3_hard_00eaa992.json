@@ -1,0 +1,8 @@
+{
+  "problem_id": "aimo3_hard_00eaa992",
+  "problem_text": "If $(60-a)(60-b)(60-c)(60-d)(60-e) = 1025$, what is the value of $a + b + c + d$?\n\nNote: 1025 is divisible by 5.",
+  "correct_answer": 188,
+  "topic": "aimo3",
+  "source": "AIMO3",
+  "ground_truth": 188
+}

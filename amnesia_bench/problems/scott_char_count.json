@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_char_count",
+  "problem_text": "How many characters are in this sentence, including the question mark?",
+  "ground_truth": 70,
+  "topic": "self_reference",
+  "source": "scott_weiss",
+  "difficulty": "easy",
+  "notes": "Hit or miss. Thinking mode tends to hurt \u2014 model second-guesses itself.",
+  "correct_answer": 70
+}

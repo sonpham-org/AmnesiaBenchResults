@@ -1,0 +1,11 @@
+{
+  "problem_id": "aimo3_hard_e2001d21",
+  "problem_text": "Given the sequence $(2, 3, 5, 4)$, calculate $\\limsup_{n\\to\\infty} x_n$ using the definition $\\limsup_{n\\to\\infty} x_n:=\\inf_n(\\sup_{k\\geq n}x_k)$.",
+  "ground_truth": 4,
+  "topic": "alg_sequences",
+  "source": "aimo3_hard",
+  "gptoss_120b_pass_rate": 0.375,
+  "gptoss_120b_n_correct": 6,
+  "gptoss_120b_correct_token_avg": 1841,
+  "correct_answer": 4
+}

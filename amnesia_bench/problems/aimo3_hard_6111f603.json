@@ -1,0 +1,11 @@
+{
+  "problem_id": "aimo3_hard_6111f603",
+  "problem_text": "How many Binary Search trees with 6 nodes have a height of 4?",
+  "ground_truth": 56,
+  "topic": "comb_graph",
+  "source": "aimo3_hard",
+  "gptoss_120b_pass_rate": 0.4375,
+  "gptoss_120b_n_correct": 7,
+  "gptoss_120b_correct_token_avg": 3226,
+  "correct_answer": 56
+}

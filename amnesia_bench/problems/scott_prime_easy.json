@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_prime_easy",
+  "problem_text": "Check if 7547 is prime. If so, answer with 1, otherwise answer with 0.",
+  "ground_truth": 1,
+  "topic": "number_theory",
+  "source": "scott_weiss",
+  "difficulty": "easy",
+  "notes": "Much easier than the hard variant.",
+  "correct_answer": 1
+}

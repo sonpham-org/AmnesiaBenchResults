@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_prime_sequence_hard",
+  "problem_text": "Consider an ordered list, P, of all the prime numbers, starting from 2. N = 10. For each prime in P, do the following. If N is a multiple of 3, subtract the prime from N. Otherwise, add it to N. Continue until N is greater than 500. What is the final value of N?",
+  "ground_truth": 601,
+  "topic": "number_theory",
+  "source": "scott_weiss",
+  "difficulty": "hard",
+  "notes": "28 steps through primes 2..107. The sequence oscillates due to multiples of 3 appearing and disappearing. Key checkpoints: N=123 (step 10), N=231 (step 16), N=300 (step 19), N=601 (step 28). Very tedious without code execution.",
+  "correct_answer": 601
+}

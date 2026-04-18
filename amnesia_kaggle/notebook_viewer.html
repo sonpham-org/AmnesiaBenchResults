@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>AmnesiaBench Notebook Cells</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, sans-serif; max-width: 1000px; margin: 0 auto; padding: 20px; background: #0d1117; color: #c9d1d9; }
+h1 { color: #58a6ff; margin-bottom: 8px; }
+.file-picker { margin-bottom: 16px; }
+.file-picker button { background: #161b22; color: #c9d1d9; border: 1px solid #30363d; padding: 8px 14px; border-radius: 6px; cursor: pointer; margin-right: 8px; }
+.file-picker button.active { border-color: #58a6ff; color: #58a6ff; }
+.file-picker button:hover { border-color: #58a6ff; }
+.cell { background: #161b22; border: 1px solid #30363d; border-radius: 8px; margin: 12px 0; overflow: hidden; }
+.cell-header { padding: 8px 14px; background: #0d1117; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+.cell-header .idx { color: #8b949e; font-weight: bold; }
+.cell-header .type { color: #d2a8ff; font-size: 10px; padding: 2px 8px; background: #1a1f35; border-radius: 4px; }
+.copy-btn { background: #238636; color: white; border: none; padding: 4px 12px; border-radius: 4px; cursor: pointer; font-size: 11px; }
+.copy-btn:hover { background: #2ea043; }
+.copy-btn.copied { background: #58a6ff; }
+pre { padding: 14px; overflow-x: auto; font-size: 12px; line-height: 1.5; color: #c9d1d9; white-space: pre-wrap; word-wrap: break-word; }
+.md pre { color: #a5d6ff; }
+.code pre { color: #e6edf3; background: #0d1117; }
+.status { color: #8b949e; margin-bottom: 8px; font-size: 13px; }
+</style>
+</head><body>
+<h1>AmnesiaBench Notebook Cells</h1>
+<div class="status" id="status">Loading...</div>
+<div class="file-picker" id="picker"></div>
+<div id="content"></div>
+
+<script>
+const NOTEBOOKS = [
+  { name: 'Debug (1 problem, full traces)', file: 'kaggle_debug_notebook.ipynb' },
+  { name: 'Full (25 problems)', file: 'kaggle_scott25_notebook.ipynb' },
+];
+
+let currentFile = null;
+
+async function loadNotebook(file) {
+  currentFile = file;
+  document.querySelectorAll('.file-picker button').forEach(b => b.classList.toggle('active', b.dataset.file === file));
+  const resp = await fetch(file + '?t=' + Date.now());
+  const nb = await resp.json();
+  const container = document.getElementById('content');
+  container.innerHTML = '';
+  nb.cells.forEach((c, i) => {
+    const src = Array.isArray(c.source) ? c.source.join('') : c.source;
+    const cellId = `cell-${i}`;
+    const type = c.cell_type;
+    const div = document.createElement('div');
+    div.className = 'cell ' + (type === 'markdown' ? 'md' : 'code');
+    div.innerHTML = `
+      <div class="cell-header">
+        <div><span class="idx">Cell ${i}</span> <span class="type">${type}</span></div>
+        <button class="copy-btn" onclick="copyCell('${cellId}', this)">Copy</button>
+      </div>
+      <pre id="${cellId}">${escapeHtml(src)}</pre>
+    `;
+    container.appendChild(div);
+  });
+  document.getElementById('status').textContent = `${nb.cells.length} cells`;
+}
+
+function escapeHtml(s) {
+  const d = document.createElement('div');
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function copyCell(id, btn) {
+  const text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1200);
+  });
+}
+
+// Build picker
+const picker = document.getElementById('picker');
+NOTEBOOKS.forEach((n, i) => {
+  const btn = document.createElement('button');
+  btn.textContent = n.name;
+  btn.dataset.file = n.file;
+  btn.onclick = () => loadNotebook(n.file);
+  picker.appendChild(btn);
+});
+
+// Load first by default
+loadNotebook(NOTEBOOKS[0].file);
+</script>
+</body></html>

@@ -1,0 +1,21 @@
+============================================================
+  Queue Runner: gemma4:latest
+  Problems: 1 (0 already done, 1 to run)
+  Stages: ['prediction', 'unbounded', 'compact', 'sweep']
+  Workers: 3
+  Ollama: http://localhost:11434
+============================================================
+  [scott_cubic_equation] predict: SKIP (exists)
+  [scott_cubic_equation] unbounded: SKIP (exists)
+  [scott_cubic_equation] compact: binary search [256, 2503] (reusing 3 unbounded runs)...
+  [scott_cubic_equation] compact: done (min_window=2432)
+  [scott_cubic_equation] sweep: testing compaction curve (3 unbounded runs)...
+  [scott_cubic_equation] sweep: done
+
+  DONE [1/1]: scott_cubic_equation
+
+============================================================
+  Finished: 1 done, 0 failed
+  Wall time: 6.3 min
+  Results in: /home/son/GitHub/autoresearch-arena/results/
+============================================================

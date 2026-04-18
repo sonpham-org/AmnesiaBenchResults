@@ -1,0 +1,15 @@
+============================================================
+  API Runner: gemini://gemini-3.1-pro-preview
+  Model safe name: gemini-3.1-pro-preview
+  Problems: 1 (0 done, 1 to run)
+  Stages: ['prediction', 'unbounded', 'compact', 'sweep']
+  Prompt variant: refined4
+============================================================
+  [scott_cubic_equation] predict: running...
+    [backoff] HTTP 429 — retrying in 3.5s (attempt 1/20)
+    [backoff] HTTP 429 — retrying in 5.3s (attempt 2/20)
+    [backoff] HTTP 429 — retrying in 8.7s (attempt 3/20)
+    [backoff] HTTP 429 — retrying in 16.3s (attempt 4/20)
+    [backoff] HTTP 429 — retrying in 33.6s (attempt 5/20)
+    [backoff] HTTP 429 — retrying in 65.5s (attempt 6/20)
+    [backoff] HTTP 429 — retrying in 120.0s (attempt 7/20)

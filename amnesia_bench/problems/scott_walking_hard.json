@@ -1,0 +1,10 @@
+{
+  "problem_id": "scott_walking_hard",
+  "problem_text": "I'm about to start walking towards my neighbor who lives exactly 1.6 miles away from me as the crow flies. We live in a city where the streets are all oriented perfectly with North/South or East/West, and we both have to walk on these streets. The North/South distance between us is twice as long as the East/West distance. I walk at 2.71 miles per hour, and he walks at 2.63 miles per hour. He will start walking towards me 24 seconds before I leave. In order to ensure that we don't take different paths, we agree that I should walk South first and then East, and he will walk West first and then North. Assuming idealized conditions and no sources of error, calculate how far I will be from my friend's house (as the crow flies) when we meet. Round this number down to the nearest hundredth of a mile. Then, multiply that number by 100. What number would need to be subtracted from the result in order to get a perfect multiple of 100.",
+  "ground_truth": 79,
+  "topic": "applied_math",
+  "source": "scott_weiss",
+  "difficulty": "hard",
+  "notes": "Solved by 3.1Pro, Opus 4.6, and Grok with tools. Inspired by aimo3_hard_271f3da5.",
+  "correct_answer": 79
+}

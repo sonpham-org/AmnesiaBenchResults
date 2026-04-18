@@ -1,0 +1,5 @@
+Model: gpt-oss:20b  Base URL: http://localhost:11434  Problems: 40  Ctx: 8192
+
+[1/40] aimo3_hard_271f3da5 (gt=6)
+  unbounded: solved=False n_while_unbounded=inf
+  predict: attempt=True n_predicted=inf

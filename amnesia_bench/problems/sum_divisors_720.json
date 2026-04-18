@@ -1,0 +1,12 @@
+{
+  "problem_id": "sum_divisors_720",
+  "problem_text": "Find the sum of all positive divisors of 720. (That is, compute $\\sigma(720)$.)",
+  "ground_truth": 2418,
+  "topic": "number_theory",
+  "source": "competition_math",
+  "gptoss_120b_pass_rate": 0.5,
+  "gptoss_120b_n_correct": 8,
+  "gptoss_120b_correct_token_avg": 1600,
+  "difficulty": "easy",
+  "notes": "720 = 2^4 * 3^2 * 5. sigma(720) = (1+2+4+8+16)(1+3+9)(1+5) = 31 * 13 * 6 = 2418."
+}

@@ -1,0 +1,8 @@
+{
+  "problem_id": "aimo3_hard_2e0b7ba3",
+  "problem_text": "How many ways are there to paint the first level of the Th\u00e1p R\u00f9a tower model, given that the $3$ doorways at the front are painted with the same color and each of the remaining $7$ doorways is painted with one of the three colors such that any two adjacent doorways with a common side on the same level are painted with different colors?",
+  "correct_answer": 216,
+  "topic": "aimo3",
+  "source": "AIMO3",
+  "ground_truth": 216
+}

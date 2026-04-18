@@ -1,0 +1,8 @@
+{
+  "problem_id": "aimo3_hard_b1da52fa",
+  "problem_text": "Drunk and Horse play a game on a $2023! \\times 2023!$ grid. Horse chooses a positive integer $k < 2023$ and lights up each square using $k$ different colors. Horse starts on a random square, and Drunk starts on another square exactly $2023^2$ squares away in one direction. In each turn, Drunk moves one square in some direction but cannot move in the same direction for 2023 consecutive moves. Horse moves up to $m$ squares in a direction of its choice, where $m = 2023 - k$. Horse gets alerted of the color of the square Drunk was previously on. Horse wins if it ends up on a square that shares at least one vertex with Drunk's square. What is the minimum number of turns in which Horse can guarantee a win?",
+  "correct_answer": 2030,
+  "ground_truth": 2030,
+  "topic": "aimo3",
+  "source": "AIMO3"
+}
